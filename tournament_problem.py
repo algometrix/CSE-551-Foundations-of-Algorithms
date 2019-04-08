@@ -2,13 +2,6 @@
 
 def tournament_schedule(players, schedule=None, day=None, i=None, j=None):
     number_of_players = j - i + 1
-    if day is None:
-        day = number_of_players - 1
-
-    if i is None and j is None:
-        i = 0
-        j = number_of_players - 1
-
     if schedule is None:
         schedule = []
         for _ in range(number_of_players - 1):
@@ -25,9 +18,6 @@ def tournament_schedule(players, schedule=None, day=None, i=None, j=None):
             day/2), i=half, j=j, schedule=schedule)
         start_day = int(day/2)
         end_day = day
-        #print(schedule[start_day - 1])
-        #print('Day : {} | {} : {}'.format(day, i+1, j+1))
-        #print('Start Day : {}'.format(start_day + 1))
         for _day in range(start_day, end_day):
             for _player in range(i, half):
                 p_index = _player + _day + 1
@@ -53,5 +43,5 @@ def print_result(schedule, players):
 if __name__ == "__main__":
     players = [1, 2, 3, 4, 5, 6, 7, 8 , 9, 10, 11, 12, 13, 14, 15, 16]
     number_of_players = len(players)
-    schedule = tournament_schedule(players, i=0, j=number_of_players - 1)
+    schedule = tournament_schedule(players, i=0, j=number_of_players - 1, day = number_of_players - 1)
     print_result(schedule, players)
