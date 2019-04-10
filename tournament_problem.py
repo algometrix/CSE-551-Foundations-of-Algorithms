@@ -1,3 +1,4 @@
+# Author : Ashish Nagar
 
 def tournament_schedule(players, schedule=None, day=None, i=None, j=None):
     # Count the number of players
